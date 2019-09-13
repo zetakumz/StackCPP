@@ -1,4 +1,3 @@
-#include <vector>
 #include "Stack.h"
 
 Stack::Stack(){
@@ -12,7 +11,10 @@ void Stack::push(int valor) {
 }
 
 void Stack::pop() {
-    pilha->pop_back();
+    if(!pilha->empty()){
+        return pilha->pop_back();
+    }
+    std::cout << "Sem elementos\n";
 }
 
 bool Stack::empty() {
@@ -24,5 +26,8 @@ int Stack::size() {
 }
 
 int Stack::top() {
-    return pilha->back();
+    if(!pilha->empty()){
+        return pilha->back();
+    }
+    std::cout << "Sem elementos\n";
 }
